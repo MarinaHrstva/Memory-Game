@@ -38,6 +38,7 @@ function cardGenerator(img) {
     back.classList.add('back');
 
     face.src = img.imgSrc;
+    card.setAttribute('name', img.name)
 
     card.appendChild(face);
     card.appendChild(back);
