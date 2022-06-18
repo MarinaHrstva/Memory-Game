@@ -1,8 +1,6 @@
 const section = document.querySelector('section');
-// const playerClicksElement = document.querySelector('span');
-let playerClicks = 0;
+let counter = 0;
 
-// playerClicksElement.textContent = playerClicks;
 
 const data = [{ imgSrc: './Images/crocodile.jpg', name: 'crocodile' },
 { imgSrc: './Images/elefant.jpg', name: 'elefant' },
@@ -22,6 +20,32 @@ const data = [{ imgSrc: './Images/crocodile.jpg', name: 'crocodile' },
 { imgSrc: './Images/zebra.png', name: 'zebra' }
 ];
 
+randomize(data);
+
+data.map(cardGenerator).forEach(c => {
+    section.appendChild(c)
+})
+
+function cardChecker(e) {
+    e.target.classList.add('flipped');
+    const flippedCards = Array.from(document.querySelectorAll('.flipped'));
+    if (flippedCards.length === 2) {
+        if (flippedCards[0].getAttribute('name') == flippedCards[1].getAttribute('name')) {
+            flippedCards.forEach(c => {
+                c.classList.remove('flipped');
+                c.style.pointerEvents='none'
+            })
+        } else {
+            flippedCards.forEach(c => {
+                c.classList.remove('flipped');
+                setTimeout(() => {
+                    c.classList.remove('toggleCard');
+
+                }, 1200)
+            })
+        }
+    }
+}
 
 function randomize(arr) {
     return arr.sort(() => Math.random() - 0.5)
@@ -43,16 +67,14 @@ function cardGenerator(img) {
     card.appendChild(face);
     card.appendChild(back);
     card.addEventListener('click', (e) => {
+        counter++;
         card.classList.toggle('toggleCard');
+        cardChecker(e);
     })
 
     return card
 
 }
 
-randomize(data);
 
-data.map(cardGenerator).forEach(c => {
-    section.appendChild(c)
-})
 
