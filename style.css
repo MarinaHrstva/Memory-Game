@@ -5,28 +5,44 @@
     /* object-fit: cover; */
 }
 
+body {
+    height: 100vh;
+    background-image: linear-gradient(to right, #e29b20, #e4aa1c, #e5ba1a, #e4ca1c, #e1da23, #d7e32b, #cdeb34, #c1f340, #adf64c, #96f858, #7efa66, #5ffb74);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 h1 {
     display: block;
     margin-left: auto;
 }
 
 section {
-    margin: 1rem;
-    width: 500px;
-    height:400px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    gap: 0.5rem;
+    gap: 1rem;
+    perspective: 800px;
 }
 
 .card {
-    width:120px;
+    width: 120px;
     height: 120px;
     border: 1px solid black;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(45deg);
 }
 
-.face {
+.face,
+.back {
     width: 100%;
     height: 100%;
+    position: absolute;
+}
+
+.back{
+    background-color: white;
+backface-visibility: hidden;
 }
