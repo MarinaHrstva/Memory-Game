@@ -1,8 +1,8 @@
 const section = document.querySelector('section');
-const playerClicksElement = document.querySelector('span');
+// const playerClicksElement = document.querySelector('span');
 let playerClicks = 0;
 
-playerClicksElement.textContent = playerClicks;
+// playerClicksElement.textContent = playerClicks;
 
 const data = [{ imgSrc: './Images/crocodile.jpg', name: 'crocodile' },
 { imgSrc: './Images/elefant.jpg', name: 'elefant' },
@@ -47,6 +47,7 @@ function cardGenerator(img) {
 }
 
 randomize(data);
+
 data.map(cardGenerator).forEach(c => {
     section.appendChild(c)
 })
