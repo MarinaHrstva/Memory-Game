@@ -41,6 +41,9 @@ function cardGenerator(img) {
 
     card.appendChild(face);
     card.appendChild(back);
+    card.addEventListener('click', (e) => {
+        card.classList.toggle('toggleCard');
+    })
 
     return card
 
@@ -51,3 +54,4 @@ randomize(data);
 data.map(cardGenerator).forEach(c => {
     section.appendChild(c)
 })
+
