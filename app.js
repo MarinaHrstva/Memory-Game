@@ -85,5 +85,11 @@ function playerMovesUpdate() {
     spanElement.textContent = counter;
 }
 
+function gameEnd(){
+    const toggleCards=document.querySelectorAll('.toggleCard');
 
+}
 
+function gameStart() {
+    
+}
