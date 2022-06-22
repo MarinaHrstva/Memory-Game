@@ -11,11 +11,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 h1 {
-    display: block;
-    margin-left: auto;
+    display: inline;
+    text-align: center;
+    color: white;
 }
 
 section {
@@ -43,7 +45,7 @@ section {
     height: 100%;
     position: absolute;
     pointer-events: none;
-       
+
 }
 
 .back {
@@ -57,6 +59,6 @@ section {
 }
 
 .flipped,
-.mached{
+.mached {
     pointer-events: none;
 }

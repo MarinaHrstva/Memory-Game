@@ -2,23 +2,26 @@ const section = document.querySelector('section');
 let counter = 0;
 
 
-const data = [{ imgSrc: './Images/crocodile.jpg', name: 'crocodile' },
-{ imgSrc: './Images/elefant.jpg', name: 'elefant' },
-{ imgSrc: './Images/giraffe.webp', name: 'giraffe' },
-{ imgSrc: './Images/hippo.jpg', name: 'hippo' },
-{ imgSrc: './Images/lion.jpg', name: 'lion' },
-{ imgSrc: './Images/monkey.jpg', name: 'monkey' },
-{ imgSrc: './Images/tiger.webp', name: 'tiger' },
-{ imgSrc: './Images/zebra.png', name: 'zebra' },
-{ imgSrc: './Images/crocodile.jpg', name: 'crocodile' },
-{ imgSrc: './Images/elefant.jpg', name: 'elefant' },
-{ imgSrc: './Images/giraffe.webp', name: 'giraffe' },
-{ imgSrc: './Images/hippo.jpg', name: 'hippo' },
-{ imgSrc: './Images/lion.jpg', name: 'lion' },
-{ imgSrc: './Images/monkey.jpg', name: 'monkey' },
-{ imgSrc: './Images/tiger.webp', name: 'tiger' },
-{ imgSrc: './Images/zebra.png', name: 'zebra' }
+const data = [{ src: './Images/crocodile.jpg', name: 'crocodile' },
+{ src: './Images/elefant.jpg', name: 'elefant' },
+{ src: './Images/giraffe.webp', name: 'giraffe' },
+{ src: './Images/hippo.jpg', name: 'hippo' },
+{ src: './Images/lion.jpg', name: 'lion' },
+{ src: './Images/monkey.jpg', name: 'monkey' },
+{ src: './Images/tiger.webp', name: 'tiger' },
+{ src: './Images/zebra.png', name: 'zebra' },
+{ src: './Images/crocodile.jpg', name: 'crocodile' },
+{ src: './Images/elefant.jpg', name: 'elefant' },
+{ src: './Images/giraffe.webp', name: 'giraffe' },
+{ src: './Images/hippo.jpg', name: 'hippo' },
+{ src: './Images/lion.jpg', name: 'lion' },
+{ src: './Images/monkey.jpg', name: 'monkey' },
+{ src: './Images/tiger.webp', name: 'tiger' },
+{ src: './Images/zebra.png', name: 'zebra' }
 ];
+
+
+const players=[];
 
 randomize(data);
 
@@ -33,7 +36,7 @@ function cardChecker(e) {
         if (flippedCards[0].getAttribute('name') == flippedCards[1].getAttribute('name')) {
             flippedCards.forEach(c => {
                 c.classList.remove('flipped');
-                c.style.pointerEvents='none'
+                c.style.pointerEvents = 'none';
             })
         } else {
             flippedCards.forEach(c => {
@@ -44,6 +47,7 @@ function cardChecker(e) {
                 }, 1200)
             })
         }
+        counter++;
     }
 }
 
@@ -61,19 +65,24 @@ function cardGenerator(img) {
     face.classList.add('face');
     back.classList.add('back');
 
-    face.src = img.imgSrc;
+    face.src = img.src;
     card.setAttribute('name', img.name)
 
     card.appendChild(face);
     card.appendChild(back);
     card.addEventListener('click', (e) => {
-        counter++;
         card.classList.toggle('toggleCard');
         cardChecker(e);
+        playerMovesUpdate()
     })
 
     return card
 
+}
+
+function playerMovesUpdate() {
+    const spanElement = document.querySelector('.playerCliscks');
+    spanElement.textContent = counter;
 }
 
 
