@@ -1,7 +1,6 @@
 import { data, players, counter} from './data.js'
 
 
-
 const section = document.querySelector('section');
 
 randomize(data);
@@ -62,7 +61,7 @@ function cardGenerator(img) {
 }
 
 function playerMovesUpdate() {
-    const spanElement = document.querySelector('.playerCliscks');
+    const spanElement = document.querySelector('.playerMoves');
     spanElement.textContent = counter;
 }
 
