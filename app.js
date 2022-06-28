@@ -1,5 +1,5 @@
-import { data, players, counter} from './data.js'
-
+import { data, players} from './data.js'
+let counter = 0;
 
 const section = document.querySelector('section');
 
@@ -28,6 +28,8 @@ function cardChecker(e) {
             })
         }
         counter++;
+        console.log(counter);
+     
     }
 }
 
@@ -65,11 +67,4 @@ function playerMovesUpdate() {
     spanElement.textContent = counter;
 }
 
-function gameEnd(){
-    const toggleCards=document.querySelectorAll('.toggleCard');
 
-}
-
-function gameStart() {
-    
-}

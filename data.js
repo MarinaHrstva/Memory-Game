@@ -19,4 +19,3 @@ export const data = [{ src: './Images/crocodile.jpg', name: 'crocodile' },
 
 export const players=[];
 
-export let counter = 0;
