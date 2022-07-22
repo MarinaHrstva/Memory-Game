@@ -1,4 +1,4 @@
-import { data, players} from './data.js'
+import { data} from './data.js'
 let counter = 0;
 
 const section = document.querySelector('section');
